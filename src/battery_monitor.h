@@ -31,11 +31,11 @@ public:
 
     /**
      * @brief 初始化 ADC 用于电池监测。
-     * @param attenuation ADC 衰减 (例如, ADC_ATTEN_DB_11)。
+     * @param attenuation ADC 衰减。
+     *        对于 ESP32-C3，建议使用 ADC_ATTEN_DB_12 以获得 0-3.3V 范围。
      * @return 成功返回 ESP_OK，否则返回错误码。
      */
     esp_err_t init(adc_atten_t attenuation = ADC_ATTEN_DB_12);
-
     /**
      * @brief 读取当前电池电压。
      * @param voltage 指向浮点数的指针，用于存储测量的电压。
